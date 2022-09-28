@@ -1,0 +1,17 @@
+id: canon-printer-detect
+
+info:
+  name: Canon Remote UI - Printer Detect
+  author: gy741
+  severity: info
+  tags: iot,panel,canon,printer
+
+requests:
+  - method: GET
+    path:
+      - "{{BaseURL}}/media/favicon.ico"
+
+    matchers:
+      - type: dsl
+        dsl:
+          - "status_code==200 && (\"-1692862215\" == mmh3(base64_py(body)))"
